@@ -5,7 +5,7 @@
 	width: 430px;
 	height: 330px;
 	border: 2px solid grey;
-	border-radius: 5px;
+	border-radius: 8px;
 	margin-top: 80px;
 }
 .login{
@@ -28,7 +28,7 @@
 
 .eye_pos{
 	position: absolute;
-	top: calc(48px + 8px);
+	top: calc(60px + 8px);
 	left: calc(50% + 110px);
 
 }
@@ -49,5 +49,15 @@
 	width: 140px;
 	left: calc(50% - 70px);
 	position: relative;
-	margin-top:30px;
+	margin-top:20px;
+}
+
+.login_footer{
+	width: 250px;
+	height: 20px;
+	bottom: 60px;
+	position: relative;
+}
+.login_back_pwd{
+	margin-left: calc(100% - 122px);
 }
