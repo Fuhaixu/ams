@@ -11938,7 +11938,7 @@ var classBase = 0;
 
 /**
  * Can not use instanceof, consider different scope by
- * cross domain or es module import in ec extensions.
+ * cross vo or es module import in ec extensions.
  * Mount a method "isInstance()" to Clz.
  */
 function enableClassCheck(Clz) {
@@ -18247,10 +18247,10 @@ function _trim(str) {
 }
 
 /**
- * Linear mapping a value from domain to range
+ * Linear mapping a value from vo to range
  * @memberOf module:echarts/util/number
  * @param  {(number|Array.<number>)} val
- * @param  {Array.<number>} domain Domain extent domain[0] can be bigger than domain[1]
+ * @param  {Array.<number>} domain Domain extent vo[0] can be bigger than vo[1]
  * @param  {Array.<number>} range  Range extent range[0] can be bigger than range[1]
  * @param  {boolean} clamp
  * @return {(number|Array.<number>}

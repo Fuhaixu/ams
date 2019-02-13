@@ -1,7 +1,7 @@
 
 let ts="用户名长度应小于20";
 let tsflag=false;
-let tscolor="rgb(169, 68, 66)";
+let tscolor="rgb(169, 68, 66)";//提示错误颜色
 $("#eye").click(function(){
 	if($(this).attr("class").indexOf("glyphicon-eye-open")!=-1){
 		$(this).prop("class","glyphicon glyphicon-eye-close eye_pos");
