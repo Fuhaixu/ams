@@ -1,0 +1,44 @@
+*{
+	margin: 0 auto;
+}
+.breadcrumb{
+	margin-top: -20px;
+}
+.inputs div{
+	/*margin-top: 5px;*/
+	margin-top: 5px;
+	height: 30px;
+	width: 400px;
+	/*border: 2px solid red;*/
+}
+.panel-heading{
+	width: 600px;
+}
+.inputs p{
+	margin-top: 10px;
+	width: 300px;
+	color: rgb(169, 68, 66);
+	display: none;
+	margin-left: 100px;	position: relative;
+}
+.main{
+	width: 600px;
+	margin-left: calc(50% - 300px);
+}
+
+.inputs{
+	width: 500px;
+	/*border:1px solid red;*/
+}
+
+.inputs .input-group{
+	width: 300px;
+}
+/*注册按钮*/
+.sign_up_btn{
+	position: relative;
+	width: 200px;
+	margin-top: 20px;
+	/*左边距设置*/
+	margin-left:calc(50% - calc(200px / 2));
+}
