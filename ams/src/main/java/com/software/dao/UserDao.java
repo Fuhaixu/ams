@@ -6,12 +6,6 @@ import com.software.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-/**
- * @Author: FHX
- * @Date: 2019/2/12 12:53
- * @Version 1.0
- */
-
 @Repository
 public class UserDao {
 
@@ -27,5 +21,12 @@ public class UserDao {
     }
     public int countUser(String uid){
         return userMapper.countUserById(uid);
+    }
+
+    public void insertUserLogin(User user){
+         userMapper.insertUserLogin(user);
+    }
+    public void insertUserInfo(User user){
+        userMapper.insertUserInfo(user);
     }
 }

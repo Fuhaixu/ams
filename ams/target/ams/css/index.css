@@ -1,0 +1,18 @@
+*{
+	margin: 0 auto;
+}
+.bottom{
+	background-color: #555;
+	height: 100px;
+}
+.bottom p{
+	width: 200px;
+	color: white;
+	font-size: 20px;
+	margin-left: calc(50% - 100px);
+	margin-top: 200px;
+}
+#myCarousel{
+	width: 600px;
+	height: 300px;
+}

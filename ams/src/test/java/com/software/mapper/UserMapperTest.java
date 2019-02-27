@@ -9,11 +9,6 @@ import org.testng.annotations.BeforeMethod;
 
 import static org.testng.Assert.*;
 
-/**
- * @Author: FHX
- * @Date: 2019/2/12 14:24
- * @Version 1.0
- */
 public class UserMapperTest {
 
     private ApplicationContext applicationContext;
@@ -28,9 +23,10 @@ public class UserMapperTest {
     @Test
     public void TestFindById(){
         UserMapper userMapper=(UserMapper) applicationContext.getBean("userMapper");
-        String pwd=userMapper.findPwdById("12346");
-        int ct=userMapper.countUserById("123456");
-        System.out.println(ct);
-        System.out.println(pwd);
+        User user=new User();
+        user.setPassword("123456");
+        user.setUid("15189801203");
+        User user1=userMapper.findUserById("123456");
+        System.out.println(user1.getAvatar().split("/")[2]);
     }
 }

@@ -37,16 +37,23 @@
         <!-- 获取连接最大等待时间 -->
         <property name="maxWait" value="${maxWait}"></property>
     </bean>
-
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+          p:dataSource-ref="dataSource"/>
     <!-- sqlSessionFactory -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+        <property name="configLocation" value="classpath:mybatis-config.xml" />
+        <!--<property name="plugins">-->
+            <!--<array>-->
+                <!--<bean class="com.github.pagehelper.PageInterceptor">-->
+                <!--</bean>-->
+            <!--</array>-->
+        <!--</property>-->
     </bean>
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.software.mapper" />
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>
 
 

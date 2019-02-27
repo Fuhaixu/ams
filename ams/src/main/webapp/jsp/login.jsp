@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: FHX
-  Date: 2019/2/10
-  Time: 15:24
-  To change this template use File | Settings | File Templates.
---%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -48,8 +41,8 @@
             <button class="btn btn-primary sign_in_btn" type="submit">登录</button>
         </div>
         <div class="login_footer">
-            <span><a href="register.html">注册账号</a></span>
-            <span class="login_back_pwd"><a href="getPwd.html">找回密码</a></span>
+            <span><a href="/register">注册账号</a></span>
+            <span class="login_back_pwd"><a href="/getPwd">找回密码</a></span>
         </div>
     </form>
 </div>

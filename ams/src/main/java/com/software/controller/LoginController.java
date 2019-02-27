@@ -1,37 +1,65 @@
 package com.software.controller;
 
 
+import com.software.mapper.TestMapper;
+import com.software.services.TestService;
 import com.software.vo.LoginCommand;
 import com.software.entity.User;
 import com.software.services.UserService;
+import org.apache.tools.ant.taskdefs.condition.Http;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.jws.WebParam;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class LoginController {
 
     @Autowired
     private UserService userService;
-
+    @Autowired
+    private TestService testService;
+    //登录
     @RequestMapping("/sign_in")
-    public ModelAndView login(Model model, LoginCommand loginCommand) {
+    public ModelAndView login(LoginCommand loginCommand, HttpServletRequest request) {
         String status=userService.isValid(loginCommand);
-        ModelAndView modelAndView=null;
+        HttpSession session=request.getSession();
+        ModelAndView mv=null;
         if(status.equals("True")) {
-            return new ModelAndView("index");
+            User user=userService.queryUserById(loginCommand.getUid());
+            session.setAttribute("user",user);
+            if(!testService.hasTest(user.getUid())){
+                mv=new ModelAndView("redirect:/question/answer");
+            }else mv=new ModelAndView("index");
         }else{
-            modelAndView=new ModelAndView("login");
-            modelAndView.addObject("status",status);
+            mv=new ModelAndView("login");
+            mv.addObject("status",status);
         }
-        return modelAndView;
+        return mv;
     }
-
+    String firstAvatar="/images/avatar.png";
+    //注册
     @RequestMapping("/sign_up")
-    public String register(Model model){
+    public ModelAndView register(User user, HttpSession session){
+        ModelAndView mv=new ModelAndView();
+        if(userService.hasTel(user.getUid())){
+            mv.addObject("msg","手机号已存在");
+            mv.setViewName("register");
 
-        return "redirect:/login";
+        }else{
+            user.setAvatar(firstAvatar);
+            userService.addUser(user);
+            session.setAttribute("user",user);
+            mv.setViewName("redirect:/question/answer");
+        }
+        return mv;
     }
+
+
 }

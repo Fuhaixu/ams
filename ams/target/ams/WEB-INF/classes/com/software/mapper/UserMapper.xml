@@ -2,10 +2,16 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!--namespace命名空间，作用就是对sql进行分类化管理，理解sql隔离-->
 <mapper namespace="com.software.mapper.UserMapper">
-
-    <select id="findUserById" parameterType="String" resultType="com.software.entity.User">
+    <resultMap type="com.software.entity.User" id="userMap" >
+        <id property="uid" column="userID"></id>
+        <result property="cid" column="cID"/>
+        <result property="name" column="name" />
+        <result property="loc" column="loc"/>
+        <result property="email" column="email"/>
+        <result property="avatar" column="avatar" />
+    </resultMap>
+    <select id="findUserById" parameterType="String" resultMap="userMap">
         SELECT * FROM userInfo WHERE userID=#{uid}
     </select>
     <select id="findPwdById" parameterType="String" resultType="String">
@@ -13,5 +19,29 @@
     </select>
     <select id="countUserById" parameterType="String" resultType="int">
         SELECT COUNT(1) FROM userlogin WHERE userID=#{uid}
+    </select>
+    <update id="updatePwd">
+        update userlogin set pwd=#{password} where userID=#{uid}
+    </update>
+    <update id="updateAvatar" parameterType="String">
+        UPDATE userinfo set avatar=#{avatar} WHERE userID=#{uid}
+    </update>
+    <insert id="insertUserLogin" parameterType="com.software.entity.User">
+        INSERT into userlogin(userID,pwd) VALUES(#{uid},#{password})
+    </insert>
+    <insert id="insertUserInfo" parameterType="com.software.entity.User">
+        INSERT into userinfo(userID,cID,`name`,loc,email,avatar) VALUES(#{uid},#{cid},#{name},#{loc},#{email},#{avatar})
+    </insert>
+    <update id="updateUserLogin">
+        UPDATE userlogin SET userID=#{user.uid},pwd=#{user.password} WHERE userID=#{srcID};
+    </update>
+    <update id="updateUserInfo">
+
+    </update>
+    <insert id="insertUserScore">
+        INSERT INTO userscore(userID,feer,greed,exp) VALUES(#{uid},#{feer},#{greed},#{exp})
+    </insert>
+    <select id="queryUserScore">
+        select * from userscore
     </select>
 </mapper>

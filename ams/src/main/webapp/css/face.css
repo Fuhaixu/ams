@@ -1,0 +1,71 @@
+*{
+	margin: 0 auto;
+}
+.main{
+	width: 800px;
+	height: 600px;
+	border: 2px solid grey;
+	border-radius: 10px;
+}
+.main-left{
+	width: 200px;
+	height: 580px;
+	/*border:1px solid red;*/
+	position: relative;
+	margin-left: 0px;
+}
+.main-right{
+	width: 570px;
+    height: 580px;
+    /*border: 2px solid grey;*/
+    position: relative;
+    margin-left: 210px;
+    margin-top: -570px;
+}
+.input-text{
+	width: 200px;
+    height: 30px;
+    margin-top: -24px;
+    margin-left: 50px;
+}
+
+#myInfo{
+	width: 500px;
+    height: 400px;
+    /*border: 1px solid red;*/
+    position: relative;
+}
+#myInfo p{
+	width: 300px;
+    margin-left: 110px;
+}
+#myInfo form button{
+	margin-left: 210px;
+    margin-top: 10px;
+}
+#changePwd{
+	width: 500px;
+    height: 400px;
+    /*border: 1px solid red;*/
+    position: relative;
+}
+#changePwd p{
+	width: 300px;
+	margin-left: 110px;
+}
+#changePwd p input{
+	margin-left: 65px;
+}
+#changePwd form button{
+	margin-left: 210px;
+	margin-top: 10px;
+}
+
+#face{
+	width: 500px;
+    height: 400px;
+}
+#face form button{
+	margin-left: 210px;
+	margin-top: 10px;
+}

@@ -25,4 +25,9 @@
     <!--<mappers>-->
         <!--<mapper class="com.software.mapper.UserMapper"/>-->
     <!--</mappers>-->
+    <!--<plugins>-->
+        <!--<plugin interceptor="com.github.pagehelper.PageInterceptor">-->
+            <!--<property name="rowBoundsWithCount" value="true"/>-->
+        <!--</plugin>-->
+    <!--</plugins>-->
 </configuration>

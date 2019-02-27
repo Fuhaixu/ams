@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.software.mapper.TestMapper">
+    <!--<resultMap id="testMap" type="com.software.mapper.po.TestPo">-->
+    <!--</resultMap>-->
+    <select id="queryTestById" parameterType="String" resultType="com.software.mapper.po.TestPo">
+        SELECT * FROM userscore WHERE userID=#{uid}
+    </select>
+    <insert id="insertTest">
+        INSERT INTO userscore(userID,feer,greed,exp,us_type) VALUES(#{uid},#{feer},#{greed},#{exp},#{type});
+    </insert>
+    <select id="countTestById" parameterType="String" resultType="int">
+        SELECT count(1) FROM userscore WHERE userID=#{uid}
+    </select>
+</mapper>

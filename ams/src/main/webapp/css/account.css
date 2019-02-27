@@ -1,0 +1,11 @@
+.main-container{
+	border: 2px solid grey;
+	border-radius: 10px;
+	width: 600px;
+	height: 600px;
+}
+.row-head{
+	border: 1px solid red;
+	background-color: #286090;
+	height: 90px;
+}

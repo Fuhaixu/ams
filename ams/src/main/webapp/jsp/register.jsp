@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: FHX
-  Date: 2019/2/12
-  Time: 10:35
-  To change this template use File | Settings | File Templates.
---%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -29,27 +23,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">主页</a>
+            <a class="navbar-brand" href="/index">主页</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Link</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li> -->
-            </ul>
+
             <form class="navbar-form navbar-left">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">
@@ -57,7 +36,7 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="login.html">登录</a></li>
+                <li><a href="/login">登录</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -75,16 +54,18 @@
             <h3 class="panel-title">注册页面</h3>
         </div>
         <div class="panel-body">
-            <form action="register" method="post">
+            <form action="sign_up" method="post" id="sign_up">
                 <div class="inputs">
                     <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
-                        <input class="form-control" type="text" placeholder="手机号" id="uid">
+                        <input class="form-control" type="text" placeholder="手机号" id="uid" name="uid"/>
                         <!-- <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> -->
                     </div>
-                    <p><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>手机号已经存在,请更换</p>
+                    <c:if test="${msg!=null}">
+                        <p style="display: block"><span class="glyphicon glyphicon-remove" aria-hidden="true" ></span>手机号已经存在,请更换</p>
+                    </c:if>
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="密码" id="pwd1">
+                        <input type="text" class="form-control" placeholder="密码" id="pwd1" name="password">
                     </div>
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="确认密码" id="pwd2">
@@ -95,28 +76,29 @@
                         <input type="text" class="form-control" placeholder="电话">
                     </div> -->
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="真实姓名">
+                        <input type="text" class="form-control" placeholder="真实姓名" name="name">
                     </div>
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="身份证" id="cid">
+                        <input type="text" class="form-control" placeholder="身份证" id="cid" name="cid">
                     </div>
                     <p><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>请输入有效身份证</p>
                     <div class="input-group">
 			        	<span class="input-group-addon">
 			        		<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
 			        	</span>
-                        <input type="text" class="form-control" placeholder="家庭住址">
+                        <input type="text" class="form-control" placeholder="家庭住址" name="loc">
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
-                        <input type="text" class="form-control" placeholder="电子邮箱" id="email">
+                        <input type="text" class="form-control" placeholder="电子邮箱" id="email" name="email">
                     </div>
                     <p><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>请输入正确电子邮箱</p>
                 </div>
                 <button class="btn btn-primary sign_up_btn" type="submit">注册</button>
-        </div>
+
         <!-- <img src="../img/download.png" class="img-circle"> -->
         </form>
+        </div>
     </div>
 </div>
 </div>
