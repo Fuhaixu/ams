@@ -52,4 +52,7 @@
 </div> -->
 </body>
 <script type="text/javascript" src="../js/login.js"></script>
+<c:if test="${ts}">
+    alert(${ts});
+</c:if>
 </html>

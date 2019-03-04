@@ -14,6 +14,7 @@ public class User {
     String email;//电子邮箱
     String loc;//地址
     String avatar;//头像
+    int role;
 
     public String getUid() {
         return uid;

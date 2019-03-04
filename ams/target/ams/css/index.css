@@ -13,6 +13,87 @@
 	margin-top: 200px;
 }
 #myCarousel{
-	width: 600px;
-	height: 300px;
+	width: 1200px;
+	height: 600px;
+}
+.person_select_dept{
+	width: 1200px;
+	height: 50px;
+	border-top: 2px solid #F05A23;
+	margin-top: 20px;
+}
+.person_select_dept div{
+	float: left;
+	height: 40px;
+	width: 100px;
+	margin-top: 20px;
+	/*border:2px solid grey;*/
+	margin-left: 70px;
+	text-align: center;
+}
+.person_select_dept div:hover{
+	border-bottom: 2px solid #3697d9;
+}
+.person_show_block{
+	width: 1200px;
+	height: 400px;
+	margin-top: 40px;
+	/*border: 1px solid red;*/
+}
+.person_show_block div img{
+    width: 240px;
+    height: 350px;
+}
+.person_show_block div p{
+	font-size: 12px;
+    margin-top: 15px;
+}
+.ps{
+	width: 1100px;
+	height: 400px;
+	/*border: 1px solid blue;*/
+}
+.ps > div{
+	height: 400px;
+	width: 250px;
+	float: left;
+	margin-left: 20px;
+}
+.info1{
+	width: 240px;
+    height: 100px;
+    margin-left: 0px;
+    top: -100px;
+    position: relative;
+    opacity: 0.8;
+    background: black;
+    color: white;
+}
+.info1 p{
+	margin-left: 20px;
+}
+.info1 h3,p,h5{
+	margin-top: 0px;
+	margin-left: 10px;
+}
+
+.info2{
+	width: 240px;	
+    height: 350px;
+    margin-left: 0px;
+    opacity: 0.8;
+    background: black;
+    margin-top: -350px;
+    position: relative;
+    color: white;
+    display: none;
+}
+.info2 h3,p,h4,h5{
+	margin-top: 0px;
+	margin-left: 10px;
+}
+
+.well-show{
+	border-top: 3px solid #F05A23;
+	width: 900px;
 }

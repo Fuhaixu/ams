@@ -1,6 +1,7 @@
 package com.software.services;
 
 import com.software.mapper.TestMapper;
+import com.software.mapper.po.TestPo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,5 +15,9 @@ public class TestService {
     }
     public boolean hasTest(String uid){
         return testMapper.countTestById(uid)>=1;
+    }
+
+    public TestPo queryTestById(String uid){
+        return testMapper.queryTestById(uid);
     }
 }

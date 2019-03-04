@@ -36,7 +36,7 @@
         UPDATE userlogin SET userID=#{user.uid},pwd=#{user.password} WHERE userID=#{srcID};
     </update>
     <update id="updateUserInfo">
-
+        UPDATE userinfo SET `name`=#{user.name},userID=#{user.uid},email=#{user.email},loc=#{user.loc} WHERE userID=#{srcID};
     </update>
     <insert id="insertUserScore">
         INSERT INTO userscore(userID,feer,greed,exp) VALUES(#{uid},#{feer},#{greed},#{exp})

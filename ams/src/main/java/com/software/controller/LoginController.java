@@ -34,20 +34,26 @@ public class LoginController {
         if(status.equals("True")) {
             User user=userService.queryUserById(loginCommand.getUid());
             session.setAttribute("user",user);
+            //如果没有测试记录跳转到测试界面
             if(!testService.hasTest(user.getUid())){
                 mv=new ModelAndView("redirect:/question/answer");
             }else mv=new ModelAndView("index");
         }else{
+            //有测试跳转到登录界面
             mv=new ModelAndView("login");
             mv.addObject("status",status);
         }
         return mv;
     }
-    String firstAvatar="/images/avatar.png";
+    //默认的第一张头像
+    private final static String firstAvatar="/images/avatar.png";
+
+
     //注册
     @RequestMapping("/sign_up")
     public ModelAndView register(User user, HttpSession session){
         ModelAndView mv=new ModelAndView();
+        //如果注册的手机号已经存在，不允许重复注册
         if(userService.hasTel(user.getUid())){
             mv.addObject("msg","手机号已存在");
             mv.setViewName("register");

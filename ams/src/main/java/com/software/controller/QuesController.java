@@ -71,7 +71,7 @@ public class QuesController {
     }
 
     //根据分数算出类型
-    int getTestType(int feer,int greed){
+    private int getTestType(int feer,int greed){
         if(feer>75&&greed<25)return -1;
         else if(feer<25&&greed>75)return 1;
         else return 0;

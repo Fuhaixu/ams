@@ -27,7 +27,7 @@ public class TestMapperTest {
 
 //        testMapper.insertTest("123",100,100,100);
 
-        TestPo testPo =testMapper.queryTestById("123456");
+        TestPo testPo=testMapper.queryTestById("123456");
         System.out.println(testPo);
     }
 

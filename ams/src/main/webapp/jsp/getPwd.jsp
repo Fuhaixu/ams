@@ -50,17 +50,23 @@
             <h3 class="panel-title">找回密码</h3>
         </div>
         <div class="panel-body">
-            <form action="sign_in">
+            <c:if test="${error}">
+                <script>
+                    alert(${error});
+                </script>
+            </c:if>
+
+            <form action="/account/getPwd">
                 <div class="inputs">
                     <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
-                        <input class="form-control" type="text" placeholder="要找回的手机号" id="uid">
+                        <input class="form-control" type="text" placeholder="要找回的手机号" name="uid" id="uid">
                     </div>
                     <div class="input-group">
-                        <input class="form-control" type="text" placeholder="真实姓名" id="uid">
+                        <input class="form-control" type="text" placeholder="真实姓名" name="name" id="uid">
                     </div>
                     <div class="input-group">
-                        <input class="form-control" type="text" placeholder="身份证" id="uid">
+                        <input class="form-control" type="text" placeholder="身份证" name="cid" id="uid">
                     </div>
                 </div>
                 <p><span class="glyphicon glyphicon-info-sign" aria-hidden="true">输入的信息确认无误后,会重置密码</span></p>

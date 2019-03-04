@@ -3,9 +3,14 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.software.mapper.TestMapper">
-    <!--<resultMap id="testMap" type="com.software.mapper.po.TestPo">-->
-    <!--</resultMap>-->
-    <select id="queryTestById" parameterType="String" resultType="com.software.mapper.po.TestPo">
+    <resultMap id="testMap" type="com.software.mapper.po.TestPo">
+        <result column="userID" property="userID"/>
+        <result column="exp" property="exp"/>
+        <result column="greed" property="greed"/>
+        <result column="feer" property="feer"/>
+        <result column="us_type" property="us_type"/>
+    </resultMap>
+    <select id="queryTestById" parameterType="String" resultMap="testMap">
         SELECT * FROM userscore WHERE userID=#{uid}
     </select>
     <insert id="insertTest">

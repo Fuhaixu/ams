@@ -1,0 +1,99 @@
+ *{
+    	margin: 0 auto;
+    }
+.bottom{
+	border-top: 5px solid #F05A23;
+	height: 80px;
+	z-index: 2;
+	background-color: white;
+	/*background-color: #F05A23;*/
+	/*position:fixed; bottom:0;*/
+}
+.bottom div{
+	margin-top: 10px;
+}
+.btn-submit{
+	height: 30px;
+}
+.main{
+	margin-top: 80px;
+	width: 1200px;
+	height: 800px;
+}
+.main-container{
+	width: 1000px;
+	height: 600px;
+	/*border: 1px solid red;*/
+}
+.container form p span{
+	margin-left: 10px;
+	margin-right: 10px;
+} 
+.container form p input{
+	width: 200px;
+	border-radius: 3px;
+	border: 1px solid grey;
+	height: 30px;
+}
+
+.main-head{
+    height: 50px;
+    border-bottom: 2px solid #F05A23;
+}
+
+.main-head .assert_find{
+    margin-left: 130px;
+    margin-top: -60px;
+}
+.main-head .assert_find_mian{
+    margin-left: 30px;
+    margin-top: -60px;
+}
+.main p span{
+    margin-left: 20px;
+}
+
+.main-projects{
+    width: 1000px;
+    height: 800px;
+    border: 1px solid grey;
+}
+.project{
+    width: 300px;
+    height: 140px;
+    border: 2px solid grey;
+    border-top: 5px solid #F05A23;
+    border-radius: 0px 0px 10px 10px;
+    margin-top: 20px;
+    float: left;
+    margin-left: 24px;
+}
+.project-head{
+    height: 30px;
+    width: 260px;
+    border-bottom: 1px solid grey;
+}
+.project-head span{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    top: 5px;
+    position: relative;
+}
+.project-body{
+    height:110px;
+}
+.project-body p{
+    width: 200px;
+    margin-left: 20px;
+    font-size: 16px;
+}
+.remove-icon{
+    padding:0px 8px;border-radius:50%;
+     border: 3px solid grey;
+}
+.ok-icon{
+    padding:0px 8px;border-radius:50%;
+    border:3px solid grey;
+    background-color:#F05A23;
+}

@@ -23,7 +23,7 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><img src="${sessionScope.user.avatar}" alt="头像" class="img-circle" style="width: 40px;height: 40px;margin-top: -5px"></a></li>
+                <li><a href="#"><img src="${sessionScope.user.avatar}" alt="头像" class="img-circle img-thumbnail" style="width: 40px;height: 40px;margin-top: -5px"></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的账户<span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -53,19 +53,19 @@
     <div class="main-right">
         <div class="tab-content">
             <div class="tab-pane fade in active" id="home">
-                <p><a href="#face" data-toggle="tab"><img src="${sessionScope.user.avatar}" alt="头像" class="img-circle" style="width: 40px;height: 40px;margin-top: -5px"></a><h4 style="width: 200px;margin-top: -35px;margin-left: 60px;">账户</h4></p>
+                <p><a href="#face" data-toggle="tab"><img src="${sessionScope.user.avatar}" alt="头像" class="img-circle img-thumbnail" style="width: 40px;height: 40px;margin-top: -5px"></a><h4 style="width: 200px;margin-top: -35px;margin-left: 60px;">账户</h4></p>
                 <hr>
                 <p>账户余额:1000.00元 <span style="margin-left: 100px">理财资产:10000.00元</span></p>
             </div>
 
             <div class="tab-pane fade" id="myInfo">
-                <form action="saveInfo" method="post">
+                <form action="/account/saveInfo" method="post">
                     <h4>我的信息</h4>
                     <hr>
-                    <p>用户名:<input type="text" name="name" class="form-control input-text">
-                    <p>帐&nbsp;&nbsp;&nbsp;&nbsp;号:<input type="text" name="uid" class="form-control input-text">
-                    <p>邮&nbsp;&nbsp;&nbsp;&nbsp;箱:<input type="text" name="email" class="form-control input-text"></p>
-                    <p>住&nbsp;&nbsp;&nbsp;&nbsp;址:<input type="text" name="loc" class="form-control input-text"></p>
+                    <p>用户名:<input type="text" name="name" class="form-control input-text" value="${sessionScope.user.name}">
+                    <p>手&nbsp;&nbsp;&nbsp;&nbsp;机:<input type="text" name="uid" class="form-control input-text" value="${sessionScope.user.uid}">
+                    <p>邮&nbsp;&nbsp;&nbsp;&nbsp;箱:<input type="text" name="email" class="form-control input-text" value="${sessionScope.user.email}"></p>
+                    <p>住&nbsp;&nbsp;&nbsp;&nbsp;址:<input type="text" name="loc" class="form-control input-text" value="${sessionScope.user.loc}"></p>
                     <button type="submit" class="btn btn-primary">保存信息</button>
                 </form>
             </div>
@@ -83,15 +83,18 @@
                 </form>
             </div>
             <div class="tab-pane fade" id="changePwd">
-                <form action="changePwd" method="post">
+                <form action="/account/changePwd" method="post">
                     <h4>修改密码</h4>
                     <hr>
                     <p>电&nbsp;&nbsp;&nbsp;&nbsp;话:<input type="text" name="uid" class="form-control input-text">
-                    <p>原密码:<input type="text" name="uid" class="form-control input-text">
-                    <p>新密码:<input type="text" name="pwd" class="form-control input-text" id="pwd1"></p>
+                    <p>原密码:<input type="text"  class="form-control input-text" name="password">
+                    <p>新密码:<input type="text" name="newPwd" class="form-control input-text" id="pwd1"></p>
                     <p>确认密码:<input type="text" class="form-control input-text" id="pwd2"></p>
                     <p style="display: none;color: red" id="ts1">两次输入密码不一致</p>
                     <p style="display: none;color: red" id="ts2">密码不能为空</p>
+                    <c:if test="${error!=null}">
+                        <script>alert("${error}");</script>
+                    </c:if>
                     <button type="submit" class="btn btn-primary">修改密码</button>
                 </form>
             </div>

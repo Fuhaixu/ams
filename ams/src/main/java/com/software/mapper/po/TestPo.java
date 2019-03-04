@@ -7,20 +7,24 @@ public class TestPo {
     int exp;
     int us_type;//测试类型
     String userID;
+    public TestPo(){
 
-    public int getUs_type() {
-        return us_type;
     }
 
-    public void setUs_type(int us_type) {
-        this.us_type = us_type;
-    }
 
     public TestPo(int feer, int greed, int exp){
         this.exp=exp;
         this.feer=feer;
         this.greed=greed;
     }
+    public TestPo(TestPo testPo){
+        this.greed=testPo.greed;
+        this.feer=testPo.feer;
+        this.exp=testPo.exp;
+        this.us_type=testPo.us_type;
+        this.userID=testPo.userID;
+    }
+
     public int getFeer() {
         return feer;
     }
@@ -43,6 +47,14 @@ public class TestPo {
 
     public void setExp(int exp) {
         this.exp = exp;
+    }
+
+    public int getUs_type() {
+        return us_type;
+    }
+
+    public void setUs_type(int us_type) {
+        this.us_type = us_type;
     }
 
     public String getUserID() {
