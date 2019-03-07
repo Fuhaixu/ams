@@ -64,7 +64,7 @@ public class QuesController {
         User user=(User)session.getAttribute("user");
         TestPo testPo=new TestPo(feer,greed,exp);
         //将测试成绩传给前端
-        mv.addObject("test",testPo);
+        session.setAttribute("test",testPo);
         int us_type=getTestType(feer,greed);
         testService.addTestById(user.getUid(),feer,greed,exp,us_type);
         return mv;

@@ -1,0 +1,7 @@
+DBtest.class
+com\software\mapper\OrderMapperTest.class
+com\software\mapper\PageHelperTest.class
+com\software\mapper\ProjectMapperTest.class
+com\software\mapper\UserMapperTest.class
+com\software\mapper\TestMapperTest.class
+Test.class

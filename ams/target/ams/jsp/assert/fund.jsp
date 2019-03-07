@@ -28,7 +28,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="#show_us">关于我们<span class="sr-only">(current)</span></a></li>
+                <li><a href="/index#show_us">关于我们<span class="sr-only">(current)</span></a></li>
                 <li><a href="#">项目投资</a></li>
                 <li></li>
             </ul>
@@ -37,7 +37,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的账户<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">基本信息</a></li>
+                        <li><a href="/account/">基本信息</a></li>
                         <li><a href="#">历史记录</a></li>
                         <li><a href="#">消息</a></li>
                         <li role="separator" class="divider"></li>
@@ -97,6 +97,19 @@
                     </li>
                 </ul>
             </div>
+            <div style="width: 400px;margin-top: -50px;margin-left: 450px;">
+                向您推荐: <c:choose>
+                <c:when test="${testPo.us_type==-1}">
+                    <span style="color:#F05A23">基金 债券 外汇 股权</span>
+                </c:when>
+                <c:when test="${testPo.us_type==0}">
+                    <span style="color:#F05A23">外汇 期货 期权 股权</span>
+                </c:when>
+                <c:when test="${testPo.us_type==1}">
+                    <span style="color:#F05A23">基金 外汇 期货 股权</span>
+                </c:when>
+            </c:choose>
+            </div>
         </div>
         <div class="main-projects">
             <c:forEach var="project" items="${projects}">
@@ -139,8 +152,8 @@
 
 <div class="navbar-fixed-bottom bottom">
     <div class="container">
-        <form>
-            <p><span>您选择的项目是:</span><input type="text" value="项目1" disabled="disabled" id="project_name"><input type="text" name="pid" value="" style="display: none;" id="project_id"><span><button type="submit" class="btn btn-primary btn-submit">提交</button></span></p>
+        <form action="/assert/order">
+            <p><span>您选择的项目是:</span><input type="text" value="" disabled="disabled" id="project_name"><input type="text" name="pID" value="" style="display: none;" id="project_id"><span><button type="submit" class="btn btn-primary btn-submit">提交</button></span></p>
         </form>
     </div>
 </div>

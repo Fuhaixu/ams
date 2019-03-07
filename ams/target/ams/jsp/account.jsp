@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core_1_1"%>
 <html>
 <head>
     <title>首页</title>
@@ -19,9 +20,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">主页</a>
+            <a class="navbar-brand" href="/index">主页</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="/index#show_us">关于我们<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">项目投资</a></li>
+                <li></li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><img src="${sessionScope.user.avatar}" alt="头像" class="img-circle img-thumbnail" style="width: 40px;height: 40px;margin-top: -5px"></a></li>
                 <li class="dropdown">
@@ -31,7 +37,7 @@
                         <li><a href="#">历史记录</a></li>
                         <li><a href="#">消息</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="../login.html">退出登录</a></li>
+                        <li><a href="/login">退出登录</a></li>
                     </ul>
                 </li>
             </ul>
@@ -46,7 +52,7 @@
             <li><a href="#myInfo" data-toggle="tab">我的信息</a></li>
             <li><a href="#face" data-toggle="tab">我的头像</a></li>
             <li><a href="#changePwd" data-toggle="tab">修改密码</a></li>
-            <li><a href="#myHistory" data-toggle="tab">我的记录</a></li>
+            <%--<li><a href="#myHistory" data-toggle="tab">我的记录</a></li>--%>
         </ul>
     </div>
 
@@ -55,7 +61,30 @@
             <div class="tab-pane fade in active" id="home">
                 <p><a href="#face" data-toggle="tab"><img src="${sessionScope.user.avatar}" alt="头像" class="img-circle img-thumbnail" style="width: 40px;height: 40px;margin-top: -5px"></a><h4 style="width: 200px;margin-top: -35px;margin-left: 60px;">账户</h4></p>
                 <hr>
-                <p>账户余额:1000.00元 <span style="margin-left: 100px">理财资产:10000.00元</span></p>
+                <p><span style="margin-left: 10px">理财资产:${sum}万元</span></p>
+                <div class="table-body">
+                    <table class="table table-hover table-bordered" style="width:500px;margin-left: 10px">
+                        <caption>运行的项目</caption>
+                        <thead>
+                        <tr>
+                            <td>订单项目</td>
+                            <td>项目名称</td>
+                            <td>项目资金</td>
+                            <td>项目周期</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${orderProjects}" var="op">
+                            <tr>
+                                <td>${orderProjects.indexOf(op)}</td>
+                                <td>${op.pname}</td>
+                                <td>${op.cost}万</td>
+                                <td>${op.interval}天</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div class="tab-pane fade" id="myInfo">
@@ -86,6 +115,7 @@
                 <form action="/account/changePwd" method="post">
                     <h4>修改密码</h4>
                     <hr>
+                    <p>请输入正确的电话和密码，进行修改</p>
                     <p>电&nbsp;&nbsp;&nbsp;&nbsp;话:<input type="text" name="uid" class="form-control input-text">
                     <p>原密码:<input type="text"  class="form-control input-text" name="password">
                     <p>新密码:<input type="text" name="newPwd" class="form-control input-text" id="pwd1"></p>
@@ -98,8 +128,8 @@
                     <button type="submit" class="btn btn-primary">修改密码</button>
                 </form>
             </div>
-            <div class="tab-pane fade" id="myHistory">
-            </div>
+            <%--<div class="tab-pane fade" id="myHistory">--%>
+            <%--</div>--%>
         </div>
     </div>
 </div>

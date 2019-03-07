@@ -1,7 +1,10 @@
 package com.software.controller;
 
 import com.software.entity.User;
+import com.software.mapper.ProjectMapper;
+import com.software.services.ProjectService;
 import com.software.services.UserService;
+import com.software.vo.OrderProject;
 import org.apache.commons.io.IOUtils;
 import org.apache.tools.ant.taskdefs.condition.Http;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +24,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.List;
 import java.util.UUID;
 
 /*用户身份信息控制器*/
@@ -28,12 +32,23 @@ import java.util.UUID;
 @RequestMapping("/account")
 public class AccountController {
     private static final String basePath="src/main/webapp/resources/images/upload/";
-    String localPath="D:\\File\\";
+//    String localPath="D:\\File\\";
+    String localPath="/home/File/";
     @Autowired
     UserService userService;
+    @Autowired
+    private ProjectService projectService;
     @RequestMapping("/")
-    public String account(){
-        return "account";
+    public ModelAndView account(HttpSession session){
+        ModelAndView mav=new ModelAndView("account");
+        User user=(User)session.getAttribute("user");
+        List<OrderProject> ops=projectService.queryOrderProjectsByUid(user.getUid());
+        mav.addObject("orderProjects", ops);
+        float sum=0;
+        for (OrderProject op:ops)sum+=op.getCost();
+        mav.addObject("sum",sum);
+        return mav;
+
     }
     @RequestMapping("/upload/Face")
     public ModelAndView upload(HttpSession session, MultipartFile file, RedirectAttributes redirectAttrs) throws Exception{
@@ -91,9 +106,13 @@ public class AccountController {
     @RequestMapping("/changePwd")
     public ModelAndView changePwd(String newPwd,HttpSession session){
         User user=(User)session.getAttribute("user");
-        userService.isValid(user.getUid(),user.getPassword());
-        userService.updateUserPwd(user,newPwd);
-        return new ModelAndView("redirct:/account/");
+        ModelAndView mav=new  ModelAndView("redirct:/account/");
+        if(userService.isValid(user.getUid(),user.getPassword())){
+            userService.updateUserPwd(user,newPwd);
+        }else{
+            mav.addObject("error","输入的信息不正确");
+        }
+        return mav;
     }
 
     @RequestMapping("/getPwd")

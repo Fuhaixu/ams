@@ -2,6 +2,7 @@ package com.software.mapper;
 
 import com.software.entity.Project;
 import com.software.mapper.po.TestPo;
+import com.software.vo.OrderProject;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,9 +28,7 @@ public class ProjectMapperTest {
 
 //        testMapper.insertTest("123",100,100,100);
 
-        List<Project> projects = projectMapper.queryProjectForList();
-        for (Project project : projects) {
-            System.out.println(project.toString());
-        }
+        List<OrderProject> orderProjects=projectMapper.queryOrderProjectsByUid("1001");
+        System.out.println(orderProjects.size());
     }
 }

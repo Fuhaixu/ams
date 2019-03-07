@@ -57,12 +57,11 @@ public class LoginController {
         if(userService.hasTel(user.getUid())){
             mv.addObject("msg","手机号已存在");
             mv.setViewName("register");
-
         }else{
             user.setAvatar(firstAvatar);
             userService.addUser(user);
             session.setAttribute("user",user);
-            mv.setViewName("redirect:/question/answer");
+            mv.setViewName("redirect:/sign_up_success");
         }
         return mv;
     }

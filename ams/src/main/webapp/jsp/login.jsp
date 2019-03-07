@@ -16,7 +16,7 @@
         <div class="login">
             <div class="login_title">
                 <h4>
-                    <a href="login.html">登录</a>
+                    <a href="/login">登录</a>
                 </h4>
             </div>
             <hr>

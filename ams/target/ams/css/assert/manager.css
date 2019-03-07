@@ -1,0 +1,15 @@
+*{
+	margin: 0 auto;
+}
+.main{
+	margin-top: 80px;
+	width: 800px;
+}
+#save{
+	width: 120px;
+	margin-left: 200px;
+}
+.main .input-group{
+	width:250px;
+	margin-left: 0px;
+}

@@ -21,7 +21,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">主页</a>
+            <a class="navbar-brand" href="/index">主页</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -33,7 +33,7 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="login.html">登录</a></li>
+                <li><a href="/login">登录</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

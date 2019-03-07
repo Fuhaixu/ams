@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/assert.css">
+    <link rel="stylesheet" type="text/css" href="../../css/assert.css">
 </head>
 <body>
 <!-- 导航 -->
@@ -30,7 +30,7 @@
         <li></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><img src="../img/b3.png" alt="头像" class="img-circle" style="width: 40px;height: 40px;margin-top: -5px"></a></li>
+        <li><a href="#"><img src="../../img/b3.png" alt="头像" class="img-circle" style="width: 40px;height: 40px;margin-top: -5px"></a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的账户<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -63,15 +63,21 @@
             <table class="assert_table">
                 <tr>
                     <td>项目名称</td>
-                    <td></td>
+                    <td><span style="margin-left: 10px">股票1号</span></td>
                 </tr>
                <tr>
                     <td>花费</td>
                     <td><div class="input-group"><input type="text" name="cost" id="cost" class="form-control" placeholder="起投不能低于100W" oninput = "value=value.replace(/[^\d]/g,'')"><span class="input-group-addon">万元</span></div></td>
                 </tr>
+                 <tr>
+                    <td>开始的时间</td>
+                    <td><div class="input-group"><input type="date" name="start_time"  class="form-control" value="${order.start_time}"></div></td>
+                </tr>
+                <tr>
                     <td>天数</td>
                     <td><div class="input-group"><input type="text" name="time" class="form-control" oninput = "value=value.replace(/[^\d]/g,'')"><span class="input-group-addon">天</span></div></td>
                 </tr>
+
                 <tr><td>是否保本</td><td><input type="radio" name="break_even" value="1" style="margin-left: 50px">是<input type="radio" name="break_even" value="0" style="margin-left: 20px">否</td></tr>
                 <tr id="ts2"><td colspan="2" style="text-align: left;color:#F05A23;cursor: pointer;font-size: 12px">
                     <p><span class="glyphicon glyphicon-info-sign" aria-hidden="true">投资花费越多优惠越多(点我查看详情)</p></td></tr>

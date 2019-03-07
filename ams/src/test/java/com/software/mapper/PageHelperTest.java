@@ -21,11 +21,5 @@ public class PageHelperTest {
     @Test
     public void page()
     {
-        ac=new ClassPathXmlApplicationContext("applicationContext*.xml");
-        PageHelper.startPage(1,5);
-        List<Question> questions=quesDao.queryAllQues();
-        System.out.println(questions.size());
-        Page<Question> page=(Page<Question>)questions;
-        System.out.println(page.getTotal());
     }
 }

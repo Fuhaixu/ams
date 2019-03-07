@@ -21,8 +21,16 @@ public class PageController {
         return "login";
     }
 
+    @RequestMapping("/score")
+    public String score(){
+        return "score";
+    }
     @RequestMapping("/index")
     public ModelAndView index(){
         return new ModelAndView("index");
+    }
+    @RequestMapping("/sign_up_success")
+    public String sign_up_success(){
+        return "sign_up_success";
     }
 }

@@ -9,4 +9,10 @@
     <select id="queryProjectsByPtype" parameterType="int" resultType="com.software.entity.Project">
         select * from project where Ptype=#{type}
     </select>
+    <select id="queryProjectByPid" parameterType="int" resultType="com.software.entity.Project">
+        select * from project where pID=#{pid}
+    </select>
+    <select id="queryOrderProjectsByUid" parameterType="String" resultType="com.software.vo.OrderProject">
+        SELECT oID,Pname,`interval`,cost FROM userpro NATURAL JOIN project WHERE userID=#{uid}
+    </select>
 </mapper>

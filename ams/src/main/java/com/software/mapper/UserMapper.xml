@@ -12,7 +12,7 @@
         <result property="avatar" column="avatar" />
     </resultMap>
     <select id="findUserById" parameterType="String" resultMap="userMap">
-        SELECT * FROM userInfo WHERE userID=#{uid}
+        SELECT * FROM userinfo WHERE userID=#{uid}
     </select>
     <select id="findPwdById" parameterType="String" resultType="String">
         SELECT pwd FROM userlogin WHERE userID=#{uid}

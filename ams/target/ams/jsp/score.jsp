@@ -46,12 +46,12 @@
 <!--导航栏结束，面板部分-->
 <div class="well well-main">
     <p><h3>您的最终成绩为</h3></p>
-    <p><span style="color: #47a447">贪婪</span>:${test.greed}</p>
-    <p><span style="color: #000000">恐惧</span>:${test.feer}</p>
-    <p><span>投资经验</span>:${test.exp}</p>
+    <p><span style="color: #47a447">贪婪</span>:${sessionScope.test.greed}</p>
+    <p><span style="color: #000000">恐惧</span>:${sessionScope.test.feer}</p>
+    <p><span>投资经验</span>:${sessionScope.test.exp}</p>
     <p>解释：</p>
     <c:choose>
-        <c:when test="${test.feer>75&&test.greed<25}">
+        <c:when test="${sessionScope.test.feer>75&&sessionScope.test.greed<25}">
         <p>投资类型:风险厌恶型</p>
         <p>您对风险避而远之，投资风格相当稳健，追求稳定利润。</p>
         <p>适合投资品种：货币基金，债券，长线外汇投资，价值型股票投资</p>
@@ -59,7 +59,7 @@
         <p>管理费：2%</p>
         <p>目标年化收益：15%</p>
         </c:when>
-        <c:when test="${test.feer<25&&test.greed>75}">
+        <c:when test="${sessionScope.test.feer<25&&sessionScope.test.greed>75}">
             <p>投资类型:风险偏好型</p>
             <p>您热衷于风险带来的巨额利润，投资风格激进，不放过每一个机会，追求超高回报。</p>
             <p>适合投资品种：股票短线交易，超短线外汇投机交易，短线期货交易，期权交易，股权投资。</p>
@@ -79,20 +79,20 @@
     <hr>
     <p>您的金融知识面:</p>
     <c:choose>
-        <c:when test="${test.exp<60}">
+        <c:when test="${sessionScope.test.exp<60}">
             <p>您的金融知识有待提高，进一步学习有助于提高您的交易胜率</p>
         </c:when>
-        <c:when test="${test.exp>60&&test.exp<80}">
+        <c:when test="${sessionScope.test.exp>60&&sessionScope.test.exp<80}">
             <p>您的金融知识基本合格，了解面较广，可尝试多种投资品种</p>
         </c:when>
-        <c:when test="${test.exp>80&&test.exp<100}">
+        <c:when test="${sessionScope.test.exp>80&&sessionScope.test.exp<100}">
             <p>您的金融知识丰富，可进一步学习一些投资策略，形成自身的交易系统</p>
         </c:when>
-        <c:when test="${test.exp==100}">
+        <c:when test="${sessionScope.test.exp==100}">
             <p>您的知识水平堪比职业投资人，可加入我们哦，收入超高</p>
         </c:when>
     </c:choose>
 </div>
-<p style="width: 400px;margin-left: calc(50% - 200px)"><a href="index.html"><button class="btn btn-primary btn-back">返回</button></a></p>
+<p style="width: 400px;margin-left: calc(50% - 200px)"><a href="/index"><button class="btn btn-primary btn-back">返回</button></a></p>
 </body>
 </html>
